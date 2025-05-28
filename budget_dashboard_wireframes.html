@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Management Dashboard - Wireframes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+        }
+        
+        .wireframe-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .wireframe-nav {
+            background: white;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-tab {
+            padding: 8px 16px;
+            background: #f1f3f4;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .nav-tab.active {
+            background: #4338ca;
+            color: white;
+        }
+        
+        .nav-tab:hover:not(.active) {
+            background: #e1e5e9;
+        }
+        
+        .wireframe {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            display: none;
+        }
+        
+        .wireframe.active {
+            display: block;
+        }
+        
+        .header {
+            padding: 20px 24px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header h1 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1f2937;
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: 1px solid #d1d5db;
+            background: white;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary {
+            background: #4338ca;
+            color: white;
+            border-color: #4338ca;
+        }
+        
+        .btn:hover {
+            background: #f3f4f6;
+        }
+        
+        .btn-primary:hover {
+            background: #3730a3;
+        }
+        
+        .content {
+            padding: 24px;
+        }
+        
+        .grid {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .grid-2 {
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .grid-3 {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        
+        .card {
+            background: #f8f9fa;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #374151;
+        }
+        
+        .form-group {
+            margin-bottom: 16px;
+        }
+        
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #374151;
+        }
+        
+        .form-input, .form-select {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: #4338ca;
+            box-shadow: 0 0 0 2px rgba(67, 56, 202, 0.1);
+        }
+        
+        .checkbox-group {
+            display: flex;
+            gap: 16px;
+            margin-top: 8px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .stat-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1f2937;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #6b7280;
+            margin-top: 4px;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            margin: 8px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: #10b981;
+            transition: width 0.3s ease;
+        }
+        
+        .progress-fill.warning {
+            background: #f59e0b;
+        }
+        
+        .progress-fill.danger {
+            background: #ef4444;
+        }
+        
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+        
+        .table th,
+        .table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .table th {
+            background: #f9fafb;
+            font-weight: 600;
+            font-size: 12px;
+            color: #6b7280;
+            text-transform: uppercase;
+        }
+        
+        .table td {
+            font-size: 14px;
+            color: #374151;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .status-active {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        .status-warning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .status-danger {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .alert {
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .alert-warning {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            color: #92400e;
+        }
+        
+        .alert-info {
+            background: #dbeafe;
+            border: 1px solid #3b82f6;
+            color: #1e40af;
+        }
+        
+        .chart-placeholder {
+            width: 100%;
+            height: 200px;
+            background: #f3f4f6;
+            border: 2px dashed #d1d5db;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            font-size: 14px;
+        }
+        
+        .filters-bar {
+            background: #f9fafb;
+            padding: 16px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 16px;
+            align-items: end;
+        }
+        
+        .filter-group {
+            flex: 1;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #e5e7eb;
+            margin-bottom: 20px;
+        }
+        
+        .tab {
+            padding: 12px 16px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            font-size: 14px;
+            color: #6b7280;
+        }
+        
+        .tab.active {
+            color: #4338ca;
+            border-bottom-color: #4338ca;
+        }
+        
+        .approval-flow {
+            background: #f0f9ff;
+            border: 1px solid #0ea5e9;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+        }
+        
+        .flow-steps {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .step {
+            padding: 6px 12px;
+            background: white;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .step.completed {
+            background: #10b981;
+            color: white;
+        }
+        
+        .step.current {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .arrow {
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-nav">
+            <button class="nav-tab active" onclick="showWireframe('budget-setup')">Budget Setup</button>
+            <button class="nav-tab" onclick="showWireframe('tracking-dashboard')">Real-time Tracking</button>
+            <button class="nav-tab" onclick="showWireframe('reporting')">Reports & Analytics</button>
+            <button class="nav-tab" onclick="showWireframe('audit-logs')">Audit Trail</button>
+        </div>
+
+        <!-- Budget Setup Wireframe -->
+        <div id="budget-setup" class="wireframe active">
+            <div class="header">
+                <h1>Create Budget</h1>
+                <div class="header-actions">
+                    <button class="btn">Cancel</button>
+                    <button class="btn btn-primary">Save Budget</button>
+                </div>
+            </div>
+            
+            <div class="content">
+                <div class="alert alert-info">
+                    <span>💡</span>
+                    <span>Budgets can be set at Issuer, Program, or individual Benefit level with automatic approval workflows.</span>
+                </div>
+                
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h3>Budget Scope & Basic Info</h3>
+                        <div class="form-group">
+                            <label class="form-label">Budget Name</label>
+                            <input type="text" class="form-input" placeholder="e.g., Q1 Cashback Budget">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Scope Level</label>
+                            <select class="form-select">
+                                <option>Issuer Level</option>
+                                <option>Program Level</option>
+                                <option>Benefit Level</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Select Program/Benefit</label>
+                            <select class="form-select">
+                                <option>IronbankCreditAutomationTest</option>
+                                <option>HSBC Premier</option>
+                                <option>AmazeKart Demo Bank Credit Card</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Budget Configuration</h3>
+                        <div class="form-group">
+                            <label class="form-label">Budget Amount</label>
+                            <input type="number" class="form-input" placeholder="10000">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Currency</label>
+                            <select class="form-select">
+                                <option>INR</option>
+                                <option>USD</option>
+                                <option>EUR</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Budget Period</label>
+                            <select class="form-select">
+                                <option>Daily</option>
+                                <option>Weekly</option>
+                                <option>Monthly</option>
+                                <option>Quarterly</option>
+                            </select>
+                        </div>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="recurring">
+                                <label for="recurring">Recurring</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="carry-forward">
+                                <label for="carry-forward">Carry Forward</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Benefit-Specific Cost Configuration</h3>
+                    <div class="tabs">
+                        <button class="tab active">Cashback</button>
+                        <button class="tab">Reward Points</button>
+                        <button class="tab">Vouchers</button>
+                    </div>
+                    
+                    <div class="grid grid-2">
+                        <div class="form-group">
+                            <label class="form-label">Cost Structure</label>
+                            <select class="form-select">
+                                <option>Static (1:1 Cost)</option>
+                                <option>Dynamic (Variable Cost)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Cost per Unit</label>
+                            <input type="number" class="form-input" placeholder="1.00" step="0.01">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Notes</label>
+                        <textarea class="form-input" rows="3" placeholder="Additional configuration notes..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Alerts & Auto-Pause Settings</h3>
+                    <div class="grid grid-2">
+                        <div class="form-group">
+                            <label class="form-label">Alert Threshold (%)</label>
+                            <input type="number" class="form-input" placeholder="80" min="1" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Auto-Pause at (%)</label>
+                            <input type="number" class="form-input" placeholder="95" min="1" max="100">
+                        </div>
+                    </div>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="spike-detection">
+                            <label for="spike-detection">Enable Spike Detection</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="maker-checker">
+                            <label for="maker-checker">Require Maker-Checker Approval</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="approval-flow">
+                    <h4 style="margin-bottom: 12px;">Approval Workflow</h4>
+                    <div class="flow-steps">
+                        <div class="step current">Created</div>
+                        <div class="arrow">→</div>
+                        <div class="step">Pending Review</div>
+                        <div class="arrow">→</div>
+                        <div class="step">Approved</div>
+                        <div class="arrow">→</div>
+                        <div class="step">Active</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Real-time Tracking Dashboard -->
+        <div id="tracking-dashboard" class="wireframe">
+            <div class="header">
+                <h1>Budget Tracking Dashboard</h1>
+                <div class="header-actions">
+                    <button class="btn">Export Data</button>
+                    <button class="btn btn-primary">Create Alert</button>
+                </div>
+            </div>
+            
+            <div class="content">
+                <div class="filters-bar">
+                    <div class="filter-group">
+                        <label class="form-label">Program</label>
+                        <select class="form-select">
+                            <option>All Programs</option>
+                            <option>IronbankCreditAutomationTest</option>
+                            <option>HSBC Premier</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="form-label">Benefit Type</label>
+                        <select class="form-select">
+                            <option>All Benefits</option>
+                            <option>Cashback</option>
+                            <option>Reward Points</option>
+                            <option>Vouchers</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="form-label">Time Period</label>
+                        <select class="form-select">
+                            <option>This Month</option>
+                            <option>Last 7 Days</option>
+                            <option>Last 30 Days</option>
+                            <option>Custom Range</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary">Apply Filters</button>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">₹2,45,000</div>
+                        <div class="stat-label">Total Budget Allocated</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">₹1,67,500</div>
+                        <div class="stat-label">Amount Disbursed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">₹77,500</div>
+                        <div class="stat-label">Remaining Budget</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">68.4%</div>
+                        <div class="stat-label">Utilization Rate</div>
+                    </div>
+                </div>
+                
+                <div class="alert alert-warning">
+                    <span>⚠️</span>
+                    <span>HSBC Premier Cashback budget is at 85% utilization. Consider reviewing spending patterns.</span>
+                </div>
+                
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h3>Budget Utilization Overview</h3>
+                        <div class="chart-placeholder">
+                            Budget Utilization Chart
+                            <br><small>(Real-time consumption vs allocated budget)</small>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Projected Depletion Timeline</h3>
+                        <div class="chart-placeholder">
+                            Depletion Forecast Chart
+                            <br><small>(Based on current spending velocity)</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Active Budgets Status</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Budget Name</th>
+                                <th>Program</th>
+                                <th>Benefit Type</th>
+                                <th>Allocated</th>
+                                <th>Consumed</th>
+                                <th>Utilization</th>
+                                <th>Status</th>
+                                <th>Est. Depletion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Q1 Cashback Pool</td>
+                                <td>HSBC Premier</td>
+                                <td>Cashback</td>
+                                <td>₹1,00,000</td>
+                                <td>₹85,240</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill warning" style="width: 85%"></div>
+                                    </div>
+                                    85.2%
+                                </td>
+                                <td><span class="status-badge status-warning">Warning</span></td>
+                                <td>Mar 15, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>Reward Points Budget</td>
+                                <td>IronbankCredit</td>
+                                <td>Points</td>
+                                <td>₹75,000</td>
+                                <td>₹42,150</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 56%"></div>
+                                    </div>
+                                    56.2%
+                                </td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                                <td>Apr 22, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>Voucher Allocation</td>
+                                <td>AmazeKart Demo</td>
+                                <td>Vouchers</td>
+                                <td>₹50,000</td>
+                                <td>₹48,900</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill danger" style="width: 98%"></div>
+                                    </div>
+                                    97.8%
+                                </td>
+                                <td><span class="status-badge status-danger">Critical</span></td>
+                                <td>Tomorrow</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reporting & Analytics -->
+        <div id="reporting" class="wireframe">
+            <div class="header">
+                <h1>Budget Reports & Analytics</h1>
+                <div class="header-actions">
+                    <button class="btn">Schedule Report</button>
+                    <button class="btn btn-primary">Export All</button>
+                </div>
+            </div>
+            
+            <div class="content">
+                <div class="filters-bar">
+                    <div class="filter-group">
+                        <label class="form-label">Report Type</label>
+                        <select class="form-select">
+                            <option>Budget Performance</option>
+                            <option>Benefit Utilization</option>
+                            <option>Customer Cohort Analysis</option>
+                            <option>Cost Analysis</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="form-label">Time Range</label>
+                        <select class="form-select">
+                            <option>Last 30 Days</option>
+                            <option>Last Quarter</option>
+                            <option>Last 6 Months</option>
+                            <option>Custom Range</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="form-label">Group By</label>
+                        <select class="form-select">
+                            <option>Program</option>
+                            <option>Benefit Type</option>
+                            <option>Customer Segment</option>
+                            <option>Time Period</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary">Generate Report</button>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">₹8.2M</div>
+                        <div class="stat-label">Total Budget Allocated (YTD)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">₹6.7M</div>
+                        <div class="stat-label">Total Disbursed (YTD)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">81.7%</div>
+                        <div class="stat-label">Average Utilization</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">₹1.5M</div>
+                        <div class="stat-label">Budget Savings</div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h3>Budget Performance Trends</h3>
+                        <div class="chart-placeholder">
+                            Monthly Budget vs Actual Spend Chart
+                            <br><small>(Line chart showing trends over time)</small>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Benefit Type Distribution</h3>
+                        <div class="chart-placeholder">
+                            Benefit Spend Distribution Pie Chart
+                            <br><small>(Cashback vs Points vs Vouchers)</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Customer Cohort Analysis</h3>
+                    <div class="tabs">
+                        <button class="tab active">By Segment</button>
+                        <button class="tab">By Geography</button>
+                        <button class="tab">By Card Type</button>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Customer Segment</th>
+                                <th>Total Customers</th>
+                                <th>Active Users</th>
+                                <th>Avg. Benefit/Customer</th>
+                                <th>Total Cost</th>
+                                <th>Cost per Acquisition</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Premium</td>
+                                <td>2,450</td>
+                                <td>1,876</td>
+                                <td>₹1,245</td>
+                                <td>₹2,335,220</td>
+                                <td>₹952</td>
+                            </tr>
+                            <tr>
+                                <td>Standard</td>
+                                <td>8,930</td>
+                                <td>6,124</td>
+                                <td>₹540</td>
+                                <td>₹3,306,960</td>
+                                <td>₹370</td>
+                            </tr>
+                            <tr>
+                                <td>Basic</td>
+                                <td>15,620</td>
+                                <td>9,456</td>
+                                <td>₹180</td>
+                                <td>₹1,702,080</td>
+                                <td>₹109</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="card">
+                    <h3>Exportable Reports</h3>
+                    <div class="grid grid-3">
+                        <div style="border: 1px solid #e5e7eb; padding: 16px; border-radius: 6px;">
+                            <h4>Budget Utilization Report</h4>
+                            <p style="font-size: 14px; color: #6b7280; margin: 8px 0;">Detailed breakdown of budget consumption by program and benefit type.</p>
+                            <button class="btn">Download CSV</button>
+                        </div>
+                        <div style="border: 1px solid #e5e7eb; padding: 16px; border-radius: 6px;">
+                            <h4>Performance Analytics</h4>
+                            <p style="font-size: 14px; color: #6b7280; margin: 8px 0;">ROI analysis and performance metrics for all active budgets.</p>
+                            <button class="btn">Download PDF</button>
+                        </div>
+                        <div style="border: 1px solid #e5e7eb; padding: 16px; border-radius: 6px;">
+                            <h4>Customer Impact Report</h4>
+                            <p style="font-size: 14px; color: #6b7280; margin: 8px 0;">Customer engagement and behavior analysis by benefit usage.</p>
+                            <button class="btn">Download Excel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Audit Trail -->
+        <div id="audit-logs" class="wireframe">
+            <div class="header">
+                <h1>Audit Trail & Logs</h1>
+                <div class="header-actions">
+                    <button class="btn">Filter Logs</button>
+                    <button class="btn btn-primary">Export Audit</button>
+                </div>
+            </div>
+            
+            <div class="content">
+                <div class="filters-bar">
+                    <div class="filter-group">
+                        <label class="form-label">Action Type</label>
+                        <select class="form-select">
+                            <option>All Actions</option>
+                            <option>Budget Created</option>
+                            <option>Budget Modified</option>
+                            <option>Disbursal Made</option>
+                            <option>Alert Triggered</option>
+                            <option>Auto-Pause</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="form-label">User/System</label>
+                        <select class="form-select">
+                            <option>All Users</option>
+                            <option>System Actions</option>
+                            <option>Seth Randive</option>
+                            <option>Admin Users</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="form-label">Date Range</label>
+                        <input type="date" class="form-input" value="2025-05-01">
+                    </div>
+                    <button class="btn btn-primary">Apply Filters</button>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">1,247</div>
+                        <div class="stat-label">Total Actions (Last 30 Days)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">89</div>
+                        <div class="stat-label">Budget Modifications</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">Alert Triggers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Auto-Pause Events</div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Recent Audit Logs</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Timestamp</th>
+                                <th>Action</th>
+                                <th>User/System</th>
+                                <th>Budget/Program</th>
+                                <th>Details</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2025-05-28 14:32:15</td>
+                                <td>Disbursal Made</td>
+                                <td>System</td>
+                                <td>HSBC Premier / Cashback</td>
+                                <td>Customer txn: card_ending_4532</td>
+                                <td>₹125.50</td>
+                                <td><span class="status-badge status-active">Success</span></td>
+                            </tr>
+                            <tr>
+                                <td>2025-05-28 14:28:42</td>
+                                <td>Alert Triggered</td>
+                                <td>System</td>
+                                <td>AmazeKart Demo / Vouchers</td>
+                                <td>Budget utilization: 95% threshold reached</td>
+                                <td>-</td>
+                                <td><span class="status-badge status-warning">Warning</span></td>
+                            </tr>
+                            <tr>
+                                <td>2025-05-28 13:45:12</td>
+                                <td>Budget Modified</td>
+                                <td>Seth Randive</td>
+                                <td>IronbankCredit / Points</td>
+                                <td>Budget increased from ₹50K to ₹75K</td>
+                                <td>₹25,000</td>
+                                <td><span class="status-badge status-active">Approved</span></td>
+                            </tr>
+                            <tr>
+                                <td>2025-05-28 12:15:33</td>
+                                <td>Disbursal Made</td>
+                                <td>System</td>
+                                <td>HSBC Premier / Cashback</td>
+                                <td>Customer txn: card_ending_7891</td>
+                                <td>₹89.25</td>
+                                <td><span class="status-badge status-active">Success</span></td>
+                            </tr>
+                            <tr>
+                                <td>2025-05-28 11:52:18</td>
+                                <td>Auto-Pause</td>
+                                <td>System</td>
+                                <td>Test Budget / Vouchers</td>
+                                <td>Budget exceeded 98% threshold</td>
+                                <td>-</td>
+                                <td><span class="status-badge status-danger">Paused</span></td>
+                            </tr>
+                            <tr>
+                                <td>2025-05-28 10:33:45</td>
+                                <td>Budget Created</td>
+                                <td>Admin User</td>
+                                <td>New Program / Cashback</td>
+                                <td>Monthly budget allocation</td>
+                                <td>₹100,000</td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h3>Compliance Overview</h3>
+                        <div class="form-group">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                <span>Data Retention Compliance</span>
+                                <span style="color: #10b981;">✓ Compliant</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                <span>Audit Trail Completeness</span>
+                                <span style="color: #10b981;">✓ 100%</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                <span>Maker-Checker Compliance</span>
+                                <span style="color: #10b981;">✓ All Critical Actions</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                <span>Data Encryption</span>
+                                <span style="color: #10b981;">✓ AES-256</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Post-Mortem Analysis</h3>
+                        <div class="chart-placeholder">
+                            Budget Performance vs Projections
+                            <br><small>(Historical accuracy of budget predictions)</small>
+                        </div>
+                        <div style="margin-top: 12px;">
+                            <button class="btn">Generate Analysis Report</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Detailed Transaction Logs</h3>
+                    <div style="margin-bottom: 16px;">
+                        <input type="text" class="form-input" placeholder="Search transactions by ID, customer, or program..." style="width: 100%;">
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Transaction ID</th>
+                                <th>Timestamp</th>
+                                <th>Customer ID</th>
+                                <th>Program</th>
+                                <th>Benefit Type</th>
+                                <th>Trigger Event</th>
+                                <th>Amount Disbursed</th>
+                                <th>Budget Pool</th>
+                                <th>Remaining Budget</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>TXN_202505281432_001</td>
+                                <td>2025-05-28 14:32:15</td>
+                                <td>CUST_4532</td>
+                                <td>HSBC Premier</td>
+                                <td>Cashback</td>
+                                <td>Purchase Transaction</td>
+                                <td>₹125.50</td>
+                                <td>Q1_CB_HSBC</td>
+                                <td>₹14,874.50</td>
+                            </tr>
+                            <tr>
+                                <td>TXN_202505281215_002</td>
+                                <td>2025-05-28 12:15:33</td>
+                                <td>CUST_7891</td>
+                                <td>HSBC Premier</td>
+                                <td>Cashback</td>
+                                <td>Purchase Transaction</td>
+                                <td>₹89.25</td>
+                                <td>Q1_CB_HSBC</td>
+                                <td>₹15,000.00</td>
+                            </tr>
+                            <tr>
+                                <td>TXN_202505281156_003</td>
+                                <td>2025-05-28 11:56:22</td>
+                                <td>CUST_3421</td>
+                                <td>IronbankCredit</td>
+                                <td>Points</td>
+                                <td>Bill Payment</td>
+                                <td>₹25.00</td>
+                                <td>Q1_RP_IRON</td>
+                                <td>₹32,850.00</td>
+                            </tr>
+                            <tr>
+                                <td>VCH_202505281045_001</td>
+                                <td>2025-05-28 10:45:18</td>
+                                <td>CUST_9876</td>
+                                <td>AmazeKart Demo</td>
+                                <td>Voucher</td>
+                                <td>Milestone Achievement</td>
+                                <td>₹500.00</td>
+                                <td>Q1_VCH_AMZ</td>
+                                <td>₹1,100.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showWireframe(wireframeId) {
+            // Hide all wireframes
+            document.querySelectorAll('.wireframe').forEach(wf => {
+                wf.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected wireframe
+            document.getElementById(wireframeId).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+        // ========= Consolidated JS Logic =========
+
+// Toggle Benefit Cost Config based on Scope
+document.querySelector('select.form-select').addEventListener('change', function () {
+    const selectedScope = this.value;
+    const benefitCostCard = [...document.querySelectorAll('h3')].find(h => h.textContent.includes('Benefit-Specific Cost Configuration'))?.closest('.card');
+    if (benefitCostCard) {
+        benefitCostCard.style.display = selectedScope === 'Benefit Level' ? 'block' : 'none';
+    }
+});
+
+// Update recurring & carry-forward based on benefit trigger type
+function updateBudgetOptions(benefitId) {
+    const benefit = dummyData.programs.flatMap(p => p.benefits).find(b => b.id === benefitId);
+    const isMilestone = benefit?.triggerType === 'milestone';
+    document.getElementById('recurring').disabled = !isMilestone;
+    document.getElementById('carry-forward').disabled = !isMilestone;
+}
+
+// Hide cost input & show fetched cost based on outcome type
+function updateCostFieldVisibility(benefitId) {
+    const benefit = dummyData.programs.flatMap(p => p.benefits).find(b => b.id === benefitId);
+    const costInputGroup = [...document.querySelectorAll('.form-label')]
+        .find(el => el.textContent.includes('Cost per Unit'))?.closest('.form-group');
+
+    // Clear any old inserted cost note
+    document.querySelectorAll('.cost-note').forEach(n => n.remove());
+
+    if (benefit && costInputGroup) {
+        if (['Cashback', 'RewardPoints', 'Voucher'].includes(benefit.type)) {
+            costInputGroup.style.display = 'none';
+            costInputGroup.insertAdjacentHTML('afterend', `<p class="cost-note">Fetched Cost: ₹${benefit.cost}</p>`);
+        } else {
+            costInputGroup.style.display = 'block';
+        }
+
+        const outcomeText = document.getElementById('benefit-outcome-type');
+        if (outcomeText) outcomeText.textContent = benefit.type;
+    }
+}
+
+// Hook benefit selection
+document.querySelector('select.form-select:nth-of-type(2)').addEventListener('change', function () {
+    const selectedBenefitId = this.value;
+    updateBudgetOptions(selectedBenefitId);
+    updateCostFieldVisibility(selectedBenefitId);
+});
+
+// Prevent duplicate budgets on Save
+document.querySelector('.btn-primary').addEventListener('click', () => {
+    const scope = document.querySelector('select.form-select').value;
+    const program = 'prog1';  // replace with actual selected program
+    const benefit = 'ben2';   // replace with actual selected benefit
+
+    const exists = dummyData.existingBudgets.some(b =>
+        b.scope === scope &&
+        (!b.program || b.program === program) &&
+        (!b.benefit || b.benefit === benefit)
+    );
+
+    if (exists) {
+        alert('A budget already exists for the selected scope.');
+        return;
+    }
+
+    // continue save process...
+});
+
+    </script>
+</body>
+</html>
